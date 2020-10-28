@@ -79,7 +79,7 @@
               </div>
               <div class="card-footer">
               <button type="submit" class="btn btn-success"id="btn-apply-filter">Apply Filter</button>
-                <button type="submit" class="btn btn-danger"id="btn-remove-filter">Remove All Filter</button>
+              <button type="submit" class="btn btn-danger"id="btn-remove-filter">Remove All Filter</button>
               </div>
               <!-- /.card-body -->
             </div>

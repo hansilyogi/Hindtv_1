@@ -51,6 +51,14 @@
                           ></select>
                         </div>
                       </div>
+                      <!-- <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Start Date</label>
+                        <input type="date" class="form-control" id="startdate">                        
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="exampleInputPassword1">End Date</label> 
+                        <input type="date" class="form-control" id="enddate">
+                      </div> -->
                     </div>
                     <!-- /.card-body -->
                   </form>

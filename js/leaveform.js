@@ -12,7 +12,7 @@ $(document).ready(function () {
   //loadleavereason(): fetch value in leavereason master
 
   var today = new Date().toISOString().split('T')[0];
-  $("#enddate").hide();
+  // $("#enddate").hide();
   document.getElementById("startdate").setAttribute('min', today);
 
   function loadsubcompany() {

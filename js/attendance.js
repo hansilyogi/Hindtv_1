@@ -42,6 +42,37 @@ $(document).ready(function () {
   }
   loadarea();
   loademployee();
+  loadsubcompany();
+  function loadsubcompany() {
+    $.ajax({
+      type: "POST",
+      url: $("#website-url").attr("value") + "subcompany",
+      data: { type: "getdata", 
+      token: $("#website-token").attr("value"),
+       },
+      dataType: "json",
+      cache: false,
+      success: function (data) {
+        if (data.isSuccess == true) {
+          $("#subcompanyname").html("");
+          $("#subcompanyname").append("<option value=0>All</option>");
+          for (i = 0; i < data.Data.length; i++) {
+            $("#subcompanyname").append(
+              "<option value=" +
+                data.Data[i]._id +
+                ">" +
+                data.Data[i].Name +
+                "</option>"
+            );
+          }
+        }
+      },
+      complete:function(){
+        SUBCOMPANY = $("#subcompanyname").val();
+        loademployee();
+      }
+    });
+  }
   function loadsingleemployee() {
     var afilter = $("#area-filter").val();
     $.ajax({
