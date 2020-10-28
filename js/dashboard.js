@@ -159,51 +159,57 @@ $(document).ready(function(){
         },
         success:function(data){
           if(data.isSuccess ==  true){
-            $("#displaydata").html("");
-            for (i = 0; i < data.Data.length; i++) {   
-              data.Data[i]["EmployeeId"] =
-                data.Data[i]["EmployeeId"] == undefined
-                  ? "-"
-                  : data.Data[i]["EmployeeId"];
-  
-                  data.Data[i]["SubCompany"] =
-                data.Data[i]["SubCompany"] == undefined
-                  ? "-"
-                  : data.Data[i]["SubCompany"];
-  
-                  data.Data[i]["Reason"] =
-                data.Data[i]["Reason"] == undefined
-                  ? "-"
-                  : data.Data[i]["Reason"];
-  
-                  data.Data[i]["StartDate"] =
-                  data.Data[i]["StartDate"] == undefined
+            console.log(data);
+              $("#displaydata").html("");
+              for (i = 0; i < data.Data.length; i++) {   
+                data.Data[i]["EmployeeId"] =
+                  data.Data[i]["EmployeeId"] == undefined
                     ? "-"
-                    : convertdateformate(data.Data[i]["StartDate"]);
-  
-                  data.Data[i]["EndDate"] =
-                  data.Data[i]["EndDate"] == undefined
+                    : data.Data[i]["EmployeeId"];
+    
+                    data.Data[i]["SubCompany"] =
+                  data.Data[i]["SubCompany"] == undefined
                     ? "-"
-                    : convertdateformate(data.Data[i]["EndDate"]);
-  
-                    data.Data[i]["LeaveStatus"] =
-                    data.Data[i]["LeaveStatus"] == undefined
-                      ? "Pending"
-                      : data.Data[i]["LeaveStatus"];
-              $("#displaydata_h").append(
-                "<tr><td>" +
-                  data.Data[i]["EmployeeId"].Name +
-                  "</td><td>" +
-                  data.Data[i].SubCompany.Name +
-                  "</td><td>"+
-                  data.Data[i].Reason.MasterName+
-                  "</td><td>"+
-                  data.Data[i]["LeaveType"]+
-                  "</td><td>"+
-                  data.Data[i]["LeaveStatus"]+
-                  "</td></tr>"
-              );
-           }
+                    : data.Data[i]["SubCompany"];
+    
+                    data.Data[i]["Reason"] =
+                  data.Data[i]["Reason"] == undefined
+                    ? "-"
+                    : data.Data[i]["Reason"];
+    
+                    data.Data[i]["StartDate"] =
+                    data.Data[i]["StartDate"] == undefined
+                      ? "-"
+                      : convertdateformate(data.Data[i]["StartDate"]);
+    
+                    data.Data[i]["EndDate"] =
+                    data.Data[i]["EndDate"] == undefined
+                      ? "-"
+                      : convertdateformate(data.Data[i]["EndDate"]);
+    
+                      data.Data[i]["LeaveStatus"] =
+                      data.Data[i]["LeaveStatus"] == undefined
+                        ? "Pending"
+                        : data.Data[i]["LeaveStatus"];
+                $("#displaydata_h").append(
+                  "<tr><td>" +
+                    data.Data[i]["EmployeeId"].Name +
+                    "</td><td>" +
+                    data.Data[i].SubCompany.Name +
+                    "</td><td>"+
+                    data.Data[i].Reason.MasterName+
+                    "</td><td>"+
+                    data.Data[i]["LeaveType"]+
+                    "</td><td>"+
+                    data.Data[i]["LeaveStatus"]+
+                    "</td><td>"+
+                    '<a id="edit-data" href="leaveAction.php?id=' +
+                    data.Data[i]["_id"] +
+                    '"><i class="fas fa-edit" aria-hidden="true"></i></a>' +
+                    "</td></tr>"
+                );
+            }
+            
           }
         },
       });

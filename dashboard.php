@@ -150,7 +150,7 @@
                       <th>Reason</th>
                       <th>Leave Type</th>
                       <th>Status</th>
-                      <!-- <th>Action</th> -->
+                      <th>Action</th>
                     </tr>
                     </thead>
                     <tbody id="displaydata_h"></tbody>
