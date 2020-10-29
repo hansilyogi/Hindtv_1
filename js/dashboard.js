@@ -40,6 +40,7 @@ $(document).ready(function(){
             dataType: "json",
             cache: false,
             success: function(data){
+              console.log(data);
                 if(data.isSuccess == true){
                     if(data.Data == null){
                         $("#memo").text(0);    
@@ -131,7 +132,6 @@ $(document).ready(function(){
             cache: false,
             success: function(data){
                 if(data.isSuccess == true){
-                    console.log(data);
                     if(data.Data == null){
                         $("#leavecount").text(0);    
                     }
@@ -145,8 +145,8 @@ $(document).ready(function(){
     }
     
     var today = new Date().toISOString().split('T')[0];
-    document.getElementById("startdate").setAttribute('min', today);
-    document.getElementById("enddate").setAttribute('min',today);
+    // document.getElementById("startdate").setAttribute('min', today);
+    // document.getElementById("enddate").setAttribute('min',today);
 
     //load data 
     function display_leave(){

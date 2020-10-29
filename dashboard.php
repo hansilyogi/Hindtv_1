@@ -43,51 +43,59 @@
             </div>
           <div class="row"> 
             <div class="col-lg-4 col-6">
+            <a href="attendance.php">
               <div class="small-box" style="background-color:#008B8B">
               <div class="icon">
                 <i class="fas fa-user" style="color:black"></i>
                   </div>
                 <div class="inner">
                   <h3><label class="badge badge-primary right" id="present" name="present" text="0"></label></h3>
-                  <a href="attendance.php"><h4 class="text-dark p-1" style="color:black"><b>Present</b></h4></a>
+                  <h4 class="text-dark p-1" style="color:black"><b>Present</b></h4>
                 </div>
               </div>
+              </a>
             </div>
           
             <div class="col-lg-4 col-6">
+            <a href="memo.php">
               <div class="small-box" style="background-color:#008B8B">
               <div class="icon">
                       <i class="fas fa-sticky-note" style="color:black"></i>
                   </div>
                 <div class="inner">
                   <h3><label class="badge badge-danger right" id="memo" name="memo" text="0"></label></h3>
-                  <a href="memo.php"><h4 class="text-dark p-1"><b>Memo Issue</b></h4></a>
+                  <h4 class="text-dark p-1"><b>Memo Issue</b></h4>
                 </div>
               </div>
+            </a>
             </div>
         
             <div class="col-lg-4 col-6">
+            <a href="employeeview.php">
               <div class="small-box" style="background-color:#008B8B">
                 <div class="icon">
                       <i class="fas fas fa-users" style="color:black"></i>
                 </div>
                 <div class="inner">
                   <h3><label class="badge badge-success right" id="employee" name="employee" value="0">0</label></h3>
-                  <a href="employeeview.php"><h4 class="text-dark p-1"><b>Employee</b></h4></a>
+                  <h4 class="text-dark p-1"><b>Employee</b></h4>
                 </div>
               </div>
+              </a>
             </div>
 
             <div class="col-lg-4 col-6">
+            <a href="leaveAction.php">
               <div class="small-box" style="background-color:#008B8B">
               <div class="icon">
                       <i class="fas fa-sticky-note" style="color:black"></i>
                   </div>
                 <div class="inner">
                   <h3><label class="badge badge-danger right" id="leavecount" name="leavecount" text="0"></label></h3>
-                  <a href="leaveAction.php"><h4 class="text-dark p-1"><b>Pending Leave</b></h4></a>
+                  <h4 class="text-dark p-1"><b>Pending Leave</b></h4>
                 </div>
               </div>
+              </a>
             </div>
         
             <!-- Subcompany wise employee present -->
@@ -139,20 +147,20 @@
           </div>
           <hr>
           <div class="card-header">
-                <h3 class="card-title"><b>Leave Application</b></h3>
-              </div>
+            <h3 class="card-title"><b>Leave Application</b></h3>
+          </div>
               <div class="card-body p-0">
                 <div class="table-responsive">
                   <table class="table table-bordered m-0 ">
                     <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Sub-Company</th>
-                      <th>Reason</th>
-                      <th>Leave Type</th>
-                      <th>Status</th>
-                      <th>Action</th>
-                    </tr>
+                      <tr>
+                        <th>Name</th>
+                        <th>Sub-Company</th>
+                        <th>Reason</th>
+                        <th>Leave Type</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
                     </thead>
                     <tbody id="displaydata_h"></tbody>
                   </table>
@@ -191,7 +199,7 @@
                       <ul class="pt-1">
                       <a href="leaveform.php"><li class="text-dark p-1">Leave Apply</li></a>
                       <!-- <a href="leaveform.php"><li class="text-dark p-1">Leave Status</li></a> -->
-                      <a href="leaveAction.php"><li class="text-dark p-1">Action on Leave &nbsp<label class="badge badge-danger right" id="leavecount"></label></li></a>
+                      <!-- <a href="leaveAction.php"><li class="text-dark p-1">Action on Leave &nbsp<label class="badge badge-danger right" id="leavecount"></label></li></a> -->
                       <br>
                       </ul></h5>
                     </div>

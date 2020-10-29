@@ -143,6 +143,7 @@ $(document).ready(function () {
           );
         },
         success: function (data) {
+          console.log(data);
           $("#displaydata").html("");
           if (data.isSuccess == true) {
             if (data.Data.length > 0) {

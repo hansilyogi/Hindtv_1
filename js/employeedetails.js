@@ -114,4 +114,18 @@ $(document).ready(function () {
     SUBCOMPANY = $("#subcompany").val();
     employee();
   });
+
+  $('#txt_searchemployee').keyup(function(){
+    var search = $(this).val();
+    $('table tbody tr').hide();
+    var len = $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0).toUpperCase()+'")').length;
+    if(len > 0){
+      $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0).toUpperCase() + search.slice(1)+'")').each(function(){
+        $(this).closest('tr').show();
+      });
+    }else{
+      $('.notfound').show();
+    }
+  });
+
 });
