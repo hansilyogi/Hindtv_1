@@ -1,26 +1,49 @@
 $(document).ready(function () {
-    var TOKEN=$(location).attr("href").split("=")[1];
+    // var TOKEN=$(location).attr("href").split("=")[1];
     // var TOKEN = $("#website-token").attr("value");
-    loadpresentEmployee();
-    countleaveapply();
+    // loadpresentEmployee();
+    // countleaveapply();
+    loadname();
 
-    function loadpresentEmployee(){
+    function loadname(){
+        console.log("asdd");
         $.ajax({
-            type: "POST",
-            url: $("#website-url").attr("value") + "adminmobile",
-            data: { type: "getemployee", 
-            token: TOKEN,
-            },
+            type:"POST",
+            url: "http://hindtv.herokuapp.com/api/login/getName/5f0da0f5115d4a93ec03fe5e",
             dataType: "json",
             cache: false,
-            success: function (data) {
-                if (data.isSuccess == true) {
-                    $("#present").text(data.Data.length);
+            success: function(data){
+                console.log(data);
+                if(data.isSuccess == true){
+                    if(data.Data == null){
+                        $("#admin_1").text(0);    
+                    }
+                    $("#admin_1").text(data.Data[0].Name);
                 }
-                loadleaveonemployee();
-            }
+                else{
+                    $("#admin_1").text(0);  
+                }
+            },
         });
     }
+
+    // function loadpresentEmployee(){
+    //     console.log("asdddss");
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "http://hindtv.herokuapp.com/api/login/getName/5f0da0f5115d4a93ec03fe5e",
+    //         dataType: "json",
+    //         cache: false,
+    //         success: function (data) {
+    //             console.log(data);
+    //             if (data.isSuccess == true) {
+    //                 console.log("asd");
+    //                 $("#admin_1").text("Welcome" + data.Data.Name);
+    //             }
+    //             loadleaveonemployee();
+    //         }
+    //     });
+    // }
 
     function loadleaveonemployee(){
         $.ajax({

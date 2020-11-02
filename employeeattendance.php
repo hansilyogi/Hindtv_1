@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label>End Date</label>
-                                            <input type="date" class="form-control mt-1" id="enddate" name="enddate">
+                                            <input type="date" class="form-control" id="enddate" name="enddate">
                                         </div>    
                                     </div>
                                     

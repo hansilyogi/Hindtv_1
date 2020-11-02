@@ -1,11 +1,14 @@
 $(document).ready(function(){
     loaddata();
-    loadmemo();
+    loadmemo_data();
+    // loadmemo();
     countgpsemp();
     countwifiemp();
     getempdata();
     countleave();
     display_leave();
+
+
     function loaddata(){
         $.ajax({
             type:"POST",
@@ -29,6 +32,127 @@ $(document).ready(function(){
             },
         });
     }
+
+    function loadmemo_data(){
+      $.ajax({
+        type:"POST",
+        url:"http://hindtv.herokuapp.com/api/attendance/memoExist",
+        dataType: "json",
+        cache: false,
+        success:function(data){
+          console.log(data);
+          if(data.isSuccess ==  true){
+            $("#memo").text(data.Data.length);
+            $("#displaydata").html("");
+            for (i = data.Data.length - 1; i > 0; i--) { 
+              if(data.Data[i]["Eid"]==null || data.Data[i]["Eid"] == "-" || data.Data[i]["Eid"] == undefined ){
+                i--;
+              } 
+              else{
+                  data.Data[i]["Eid"] =
+                  data.Data[i]["Eid"] == undefined
+                    ? "-"
+                    : data.Data[i]["Eid"];
+  
+                  data.Data[i]["Status"] =
+                    data.Data[i]["Status"] == "false"
+                    ? "-"
+                    : data.Data[i]["Status"];
+  
+                    data.Data[i]["Date"] =
+                    data.Data[i]["Date"] == undefined
+                      ? "-"
+                      : convertdateformate(data.Data[i]["Date"]);
+    
+                    data.Data[i]["Reason"] = 
+                      data.Data[i]["Reason"] == undefined
+                      ? "-"
+                      : data.Data[i]["Reason"];
+
+                  $("#displaydata_m").append(
+                    "<tr><td>" +
+                      data.Data[i]["Eid"].Name +
+                      "</td><td>" +
+                      data.Data[i]["Eid"].SubCompany.Name +
+                      "</td><td>" +
+                      convertdateformate(data.Data[i]["Date"]) +
+                      "</td><td>" +
+                      data.Data[i]["Reason"]+
+                      "</td><td>"+
+                      data.Data[i]["Type"]+
+                      "</td><td>"+
+                      data.Data[i]["Status"]+
+                      "</td><td>"+
+                      '<a id="approve_m" href="memodetails.php?id=' +
+                      data.Data[i]["_id"] +
+                      '"><button class="btn btn-primary" style="widht:50px">Approve</button></a>' +"  "+
+                      '<a id="disapprove_m" href="memodetails.php?id=' +
+                      data.Data[i]["_id"] +
+                      '"><button class="btn btn-danger" style="widht:50px">Disapprove</button></a>' +
+                      "</td></tr>"
+                  );
+                }
+              }
+          }
+        },
+      });
+    }
+
+    $(document).on("click", "#approve_m",function(e){
+      e.preventDefault();
+      var id = $(this).attr("href").split("=")[1];
+      $.ajax({
+        type:"POST",
+        url: $("#website-url").attr("value") + "memo",
+        data: {
+          "type" : "updatedata",
+          "id" : id,
+          "status" : "Approved",
+          token: $("#website-token").attr("value")
+          },
+        dataType: "json",
+        cache: false,
+        beforeSend: function () {
+          $("#btn-submit").html(
+            '<button class="btn btn-primary float-right" type="button">\
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>\
+            Loading...\
+            </button>'
+          );
+        },
+        success: function(data){
+          if(data.isSuccess == true){
+            location.reload();
+          }
+        }
+      });
+    });
+
+    $(document).on("click", "#disapprove_m",function(e){
+      e.preventDefault();
+      var id = $(this).attr("href").split("=")[1];
+      $.ajax({
+        type:"POST",
+        url: $("#website-url").attr("value") + "memo",
+        data: {
+          "type" : "updatedata",
+          "id" : id,
+          "status" : "Rejected"
+          },
+        dataType: "json",
+        cache: false,
+        success: function(data){
+          if(data.isSuccess == true){
+            location.reload();
+          }
+        }
+      });
+    });
+  
+    // $(document).on("click", "#disapprove_m",function(){
+    //   console.log('Memo undone');
+    // });
+
     function loadmemo(){
         $.ajax({
             type:"POST",
@@ -40,7 +164,6 @@ $(document).ready(function(){
             dataType: "json",
             cache: false,
             success: function(data){
-              console.log(data);
                 if(data.isSuccess == true){
                     if(data.Data == null){
                         $("#memo").text(0);    
@@ -52,7 +175,9 @@ $(document).ready(function(){
                 }
             },
         });
-    }function countgpsemp(){
+    }
+    
+    function countgpsemp(){
         $.ajax({
             type:"POST",
             url: $("#website-url").attr("value") + "dashboard",
@@ -74,7 +199,9 @@ $(document).ready(function(){
                 }
             },
         });
-    }function countwifiemp(){
+    }
+    
+    function countwifiemp(){
         $.ajax({
             type:"POST",
             url: $("#website-url").attr("value") + "dashboard",
@@ -97,6 +224,7 @@ $(document).ready(function(){
             },
         });
     }
+    
     function getempdata(){
         $.ajax({
             type:"POST",
@@ -120,6 +248,7 @@ $(document).ready(function(){
             },
         });
     }
+    
     function countleave(){
         $.ajax({
             type:"POST",
@@ -131,6 +260,7 @@ $(document).ready(function(){
             dataType: "json",
             cache: false,
             success: function(data){
+              console.log(data);
                 if(data.isSuccess == true){
                     if(data.Data == null){
                         $("#leavecount").text(0);    
@@ -143,12 +273,8 @@ $(document).ready(function(){
             },
         });
     }
-    
     var today = new Date().toISOString().split('T')[0];
-    // document.getElementById("startdate").setAttribute('min', today);
-    // document.getElementById("enddate").setAttribute('min',today);
 
-    //load data 
     function display_leave(){
       $.ajax({
         type:"POST",
@@ -160,142 +286,126 @@ $(document).ready(function(){
         success:function(data){
           if(data.isSuccess ==  true){
             console.log(data);
-              $("#displaydata").html("");
-              for (i = 0; i < data.Data.length; i++) {   
-                data.Data[i]["EmployeeId"] =
-                  data.Data[i]["EmployeeId"] == undefined
+            $("#displaydata_h").html("");
+            for (i = 0; i < data.Data.length; i++) {   
+              data.Data[i]["EmployeeId"] =
+                data.Data[i]["EmployeeId"] == undefined
+                  ? "-"
+                  : data.Data[i]["EmployeeId"];
+  
+                  data.Data[i]["SubCompany"] =
+                data.Data[i]["SubCompany"] == undefined
+                  ? "-"
+                  : data.Data[i]["SubCompany"];
+  
+                  data.Data[i]["Reason"] =
+                data.Data[i]["Reason"] == undefined
+                  ? "-"
+                  : data.Data[i]["Reason"];
+  
+                  data.Data[i]["StartDate"] =
+                  data.Data[i]["StartDate"] == undefined
                     ? "-"
-                    : data.Data[i]["EmployeeId"];
-    
-                    data.Data[i]["SubCompany"] =
-                  data.Data[i]["SubCompany"] == undefined
+                    : convertdateformate(data.Data[i]["StartDate"]);
+  
+                  data.Data[i]["EndDate"] =
+                  data.Data[i]["EndDate"] == undefined
                     ? "-"
-                    : data.Data[i]["SubCompany"];
-    
-                    data.Data[i]["Reason"] =
-                  data.Data[i]["Reason"] == undefined
-                    ? "-"
-                    : data.Data[i]["Reason"];
-    
-                    data.Data[i]["StartDate"] =
-                    data.Data[i]["StartDate"] == undefined
-                      ? "-"
-                      : convertdateformate(data.Data[i]["StartDate"]);
-    
-                    data.Data[i]["EndDate"] =
-                    data.Data[i]["EndDate"] == undefined
-                      ? "-"
-                      : convertdateformate(data.Data[i]["EndDate"]);
-    
-                      data.Data[i]["LeaveStatus"] =
-                      data.Data[i]["LeaveStatus"] == undefined
-                        ? "Pending"
-                        : data.Data[i]["LeaveStatus"];
-                $("#displaydata_h").append(
-                  "<tr><td>" +
-                    data.Data[i]["EmployeeId"].Name +
-                    "</td><td>" +
-                    data.Data[i].SubCompany.Name +
-                    "</td><td>"+
-                    data.Data[i].Reason.MasterName+
-                    "</td><td>"+
-                    data.Data[i]["LeaveType"]+
-                    "</td><td>"+
-                    data.Data[i]["LeaveStatus"]+
-                    "</td><td>"+
-                    '<a id="edit-data" href="leaveAction.php?id=' +
-                    data.Data[i]["_id"] +
-                    '"><i class="fas fa-edit" aria-hidden="true"></i></a>' +
-                    "</td></tr>"
-                );
-            }
-            
+                    : convertdateformate(data.Data[i]["EndDate"]);
+  
+                    data.Data[i]["LeaveStatus"] =
+                    data.Data[i]["LeaveStatus"] == undefined
+                      ? "Pending"
+                      : data.Data[i]["LeaveStatus"];
+              $("#displaydata_h").append(
+                "<tr><td>" +
+                  data.Data[i]["EmployeeId"].Name +
+                  "</td><td>"+
+                  data.Data[i]["LeaveType"]+
+                  "</td><td>"+
+                  data.Data[i].Reason.MasterName+
+                  "</td><td>" +
+                  convertdateformate(data.Data[i]["StartDate"]) +
+                  "</td><td>" +
+                  convertdateformate(data.Data[i]["EndDate"]) +
+                  "</td><td>"+
+                  data.Data[i]["LeaveStatus"]+
+                  "</td><td>"+
+                  '<a id="approve" href="leaveAction.php?id=' +
+                  data.Data[i]["_id"] +
+                  '"><button class="btn btn-primary" style="widht:50px">Approve</button></a>' +"  "+
+                  '<a id="disapprove" href="leaveAction.php?id=' +
+                  data.Data[i]["_id"] +
+                  '"><button class="btn btn-danger" style="widht:50px">Disapprove</button></a>' +
+                  "</td></tr>"
+              );
+           }
           }
         },
       });
     }
-    
-    //change value on subcompany master's value selection
-      
-  
-    //change value on company master's value selection
-    
-    //Insert value in data base
-    $(document).on("click","#btn-submit",function(e){
-        e.preventDefault();        
-          $.ajax({
-          type:"POST",
-          url:$("#website-url").attr("value")+ "leaveform",
-          data: {
-            type:"update",
-            id:UPDATEID,
-            status:$("#leavestatus").val(),
-            token: $("#website-token").attr("value")
-          },
-          beforeSend: function () {
-            $("#btn-submit").html(
-              '<button class="btn btn-primary float-right" type="button">\
-                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>\
-                                    Loading...\
-              </button>'
-            );
-          },
-          success:function(data){
-            if(data.isSuccess ==  true){
-              $("form")[0].reset();
-              $("#staticmessage")
-              .removeClass("text-success text-danger")
-              .addClass("text-success font-weight-bold");
-            $("#staticmessage").html(data["Message"]).fadeOut(10000);
-            $.when($("#staticmessage").fadeOut()).then(function () {
-              $("#staticmessage").html("");
-              $("#staticmessage").removeAttr("style");
-              $("#staticmessage");
-            });
-            }
-            loaddata();
-          },
-          complete: function () {
-            $("#btn-submit-on").html(
-              '<button type="submit" class="btn btn-success" id="btn-submit">Submit</button>' +
-                '<button type="submit" class="btn btn-danger ml-1" id="btn-cancel">Cancel</button>'
-            );
-          },
-        });
-    });
-    var startdate,enddate;
-//edit button function for update value
-    $(document).on("click", "#edit-data", function (e) {
-        e.preventDefault();
-        var id = $(this).attr("href").split("=")[1];
-        $.ajax({
-          type: "POST",
-          url: $("#website-url").attr("value") + "leaveform",
-          data: { type: "getsingledata", id: id,token: $("#website-token").attr("value") },
-          dataType: "json",
-          cache: false,
-          success: function (data) {
-            if (data.isSuccess == true) {
-              UPDATEID = id;
-              $("#companyname").val(data.Data[0].Company.Name);
-              $("#subcompanyname").val(data.Data[0].SubCompany.Name);
-              $("#employeename").val(data.Data[0].EmployeeId.Name);
-              $("#leavereasonname").val(data.Data[0].Reason.MasterName);
-              $("#startdate").val(reversedateFormate(data.Data[0].StartDate));
-              $("#enddate").val(reversedateFormate(data.Data[0].EndDate));
-              $("#leaveperiod").val(data.Data[0].LeavePeriod);
-              $("#leavetype").val(data.Data[0].LeaveType);
-              $("#description").val(data.Data[0].Description);
-              
-              window.scrollTo(0, 0);
-              $("#btn-submit-on").html(
-                "<button type='submit' class='btn btn-success' id='btn-submit'>Submit</button>" +
-                  "<button type='submit' class='btn btn-danger ml-1'id='btn-cancel'>Cancel</button>"
-              );
-            }
-          },
-        });
+
+    $(document).on("click", "#approve", function (e) {
+      e.preventDefault();        
+      var id = $(this).attr("href").split("=")[1];
+      $.ajax({
+      type:"POST",
+      url:$("#website-url").attr("value")+ "leaveform",
+      data: {
+        type:"update",
+        id:id,
+        status:"Approved",
+        token: $("#website-token").attr("value")
+      },
+      beforeSend: function () {
+        $("#btn-submit").html(
+          '<button class="btn btn-primary float-right" type="button">\
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>\
+          Loading...\
+          </button>'
+        );
+      },
+      success:function(data){
+        // console.log(data);
+        if(data.isSuccess ==  true){
+          countleave();
+          display_leave();
+        }
+      },
       });
+    });
+    
+    $(document).on("click", "#disapprove", function (e) {
+      e.preventDefault();        
+      var id = $(this).attr("href").split("=")[1];
+      $.ajax({
+      type:"POST",
+      url:$("#website-url").attr("value")+ "leaveform",
+      data: {
+        type:"update",
+        id:id,
+        status:"Rejected",
+        token: $("#website-token").attr("value")
+      },
+      beforeSend: function () {
+        $("#btn-submit").html(
+          '<button class="btn btn-primary float-right" type="button">\
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>\
+          Loading...\
+          </button>'
+        );
+      },
+      success:function(data){
+        // console.log(data);
+        if(data.isSuccess ==  true){
+          countleave();
+          display_leave();
+        }
+      },
+    });
+  });
+
+  var startdate,enddate;
 
 //check validation
     function validation(){
@@ -329,4 +439,5 @@ $(document).ready(function(){
         date = date[0]+'-'+date[1]+'-'+date[2];
         return date;
     }
+
 });

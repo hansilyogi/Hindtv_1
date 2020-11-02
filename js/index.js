@@ -2,8 +2,8 @@ $(document).ready(function() {
     //var URL = "http://localhost:81/HindTV---FRONTEND/";
 
 
-    var URL = "http://15.206.236.83/"; //server
-    // var URL = "http://localhost:8080/";  //localhost
+    // var URL = "http://15.206.236.83/"; //server
+    var URL = "http://localhost:8080/";  //localhost
 
     $(document).on("click", "#btn-login", function(e) {
         e.preventDefault();
@@ -25,6 +25,7 @@ $(document).ready(function() {
                 success: function(data) {
                     
                     if (data.isSuccess == true) {
+                        console.log(data);
                         // sessionready(data.Data[0]._id);
                         // alert(data.Data[0]._id);
                         // $(location).attr(

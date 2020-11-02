@@ -51,16 +51,28 @@
                           ></select>
                         </div>
                       </div>
-                      <!-- <div class="form-group col-md-6">
+                      <!-- <div class="col-3">
+                        <label>Starting Date</label>
+                        <input type="date" class="form-control" id="startdate" name="startdate">
+                      </div>
+                      <div class="col-3">
+                        <label>Ending Date</label>
+                        <input type="date" class="form-control" id="enddate" name="enddate">
+                      </div> -->
+                      <div class="form-group col-md-6">
                         <label for="exampleInputEmail1">Start Date</label>
                         <input type="date" class="form-control" id="startdate">                        
                       </div>
                       <div class="form-group col-md-6">
                         <label for="exampleInputPassword1">End Date</label> 
                         <input type="date" class="form-control" id="enddate">
-                      </div> -->
+                      </div>
                     </div>
                     <!-- /.card-body -->
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-success"id="btn-apply-filter">Apply Filter</button>
+                      <button type="submit" class="btn btn-danger"id="btn-remove-filter">Remove All Filter</button>
+                    </div>
                   </form>
                 </div>
               </div>

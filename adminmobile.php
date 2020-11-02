@@ -104,7 +104,7 @@
                             <i class="fas fa-user-cog"></i>
                         </div>
                         <div class="inner">
-                        <h5><a  class="text-dark">Welcome Admin</a>
+                        <h5><a class="text-dark" id="admin_1" text="0"></h5></a>
                         <br></h5>
                         </div>
                     </div>
@@ -119,6 +119,6 @@
       </div>
     </div>
     <?php include('script.php'); ?>
-    <!-- <script src="js/adminmobile.js"></script> -->
+    <script src="js/adminmobile.js"></script>
   </body>
 </html>

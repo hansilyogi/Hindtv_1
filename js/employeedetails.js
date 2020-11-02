@@ -1,8 +1,26 @@
 $(document).ready(function () {
   var COMPANY;
   var SUBCOMPANY;
+  REMOVEFILTER = 0;
+  // $("#startdate").val(createdate());
+  // $("#enddate").val(createdate());
+
+  // function createdate() {
+  //   var month = d.getMonth() + 1;
+  //   var day = d.getDate();
+  //   date =
+  //     d.getFullYear() +
+  //     "-" +
+  //     (month < 10 ? "0" : "") +
+  //     month +
+  //     "-" +
+  //     (day < 10 ? "0" : "") +
+  //     day;
+  //   return date;
+  // }
 
   loadcompany();
+
 
   function loadcompany() {
     $.ajax({
@@ -125,6 +143,29 @@ $(document).ready(function () {
       });
     }else{
       $('.notfound').show();
+    }
+  });
+
+  $(document).on("click", "#btn-remove-filter", function (e) {
+    e.preventDefault();
+    REMOVEFILTER = 1;
+    var id = $(location).attr("href").split("=")[1];
+    if (id != undefined) {
+      loadsingleemployee();
+    } else {
+      loaddata();
+    }
+  });
+
+  $(document).on("click", "#btn-apply-filter", function (e) {
+    console.log('asd');
+    e.preventDefault();
+    REMOVEFILTER = 0;
+    var id = $(location).attr("href").split("=")[1];
+    if (id != undefined) {
+      loadsingleemployee();
+    } else {
+      loaddata();
     }
   });
 

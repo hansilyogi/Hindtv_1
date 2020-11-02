@@ -12,6 +12,7 @@ $(document).ready(function () {
     dataType: "json",
     cache: false,
     success: function (data) {
+      console.log(data);
       if (data.isSuccess == true) {
         CONDITIONCHECK = data.Data[0].Status;
         sts =
@@ -40,6 +41,9 @@ $(document).ready(function () {
               "<tr><td>Reason:</td><td>" +
               data.Data[0].Reason +
               "</td></tr>" +
+              "<tr><td>Status:</td><td>" +
+              data.Data[0].Status +
+              "</td></tr>" +
               "<tr><td>Approval:</td><td id='triggeroncomplete'>" +
               "<button type='button' class='btn btn-block btn-success col-md-3' id='approval' data-id='Approved'>Approve</button>" +
               "<button type='button' class='btn btn-block btn-danger col-md-3' id='reject' data-id='Rejected'>Reject</button>" +
@@ -64,6 +68,9 @@ $(document).ready(function () {
                 "<tr><td>Reason:</td><td>" +
                 data.Data[0].Reason +
                 "</td></tr>" +
+                "<tr><td>Status:</td><td>" +
+                data.Data[0].Status +
+                "</td></tr>" +
                 "<tr><td>Approval:</td><td id='triggeroncomplete'>" +
                 "<p>Approved</p>" +
                 "</td></tr>"
@@ -86,6 +93,9 @@ $(document).ready(function () {
                 "<tr><td>Reason:</td><td>" +
                 data.Data[0].Reason +
                 "</td></tr>" +
+                "<tr><td>Status:</td><td>" +
+                data.Data[0].Status +
+                "</td></tr>" +
                 "<tr><td>Approval:</td><td id='triggeroncomplete'>" +
                 "<p>Rejected</p>" +
                 "</td></tr>"
@@ -105,7 +115,10 @@ $(document).ready(function () {
                 Math.abs(data.Data[0].Minutes) +
                 " min " +
                 "</td></tr>" +
-                "<tr><td>Reason:</td><td>Reason Not Provided.</td></tr>"
+                "<tr><td>Reason:</td><td>Reason Not Provided.</td></tr>"+
+                "<tr><td>Status:</td><td>" +
+                data.Data[0].Status +
+                "</td></tr>"
             );
           }
         }

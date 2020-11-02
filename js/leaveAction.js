@@ -41,7 +41,6 @@ $(document).ready(function () {
                   data.Data[i]["EndDate"] == undefined
                     ? "-"
                     : convertdateformate(data.Data[i]["EndDate"]);
-  
                     data.Data[i]["LeaveStatus"] =
                     data.Data[i]["LeaveStatus"] == undefined
                       ? "Pending"
@@ -97,8 +96,8 @@ $(document).ready(function () {
           beforeSend: function () {
             $("#btn-submit").html(
               '<button class="btn btn-primary float-right" type="button">\
-                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>\
-                                    Loading...\
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>\
+              Loading...\
               </button>'
             );
           },

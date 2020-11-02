@@ -6,6 +6,7 @@ $(document).ready(function () {
   $("#enddate").val(createdate());
 
   loadcompany();
+  loadmemo_data();
 
   function createdate() {
     var month = d.getMonth() + 1;
@@ -170,6 +171,8 @@ $(document).ready(function () {
                     "<a target='_blank' href='memodetails.php?id=" +
                     data.Data[i]._id +
                     "'>View Here</a>" +
+                    "</td><td>" +
+                    data.Data[i].Status +
                     "</td></tr>"
                 );
               }
@@ -194,4 +197,79 @@ $(document).ready(function () {
     }
     return val;
   }
+
+  function loadmemo_data(){
+    $.ajax({
+      type:"POST",
+      url:"http://hindtv.herokuapp.com/api/attendance/memoExist",
+      dataType: "json",
+      cache: false,
+      success:function(data){
+        console.log(data);
+        if(data.isSuccess ==  true){
+          $("#memo").text(data.Data.length);
+          $("#displaydata_m").html("");
+          for (i = data.Data.length - 1; i > 0; i--) { 
+            if(data.Data[i]["Eid"]==null || data.Data[i]["Eid"] == "-" || data.Data[i]["Eid"] == undefined ){
+              i--;
+            } 
+            else{
+                data.Data[i]["Eid"] =
+                data.Data[i]["Eid"] == undefined
+                  ? "-"
+                  : data.Data[i]["Eid"];
+
+                data.Data[i]["Status"] =
+                  data.Data[i]["Status"] == "false"
+                  ? "-"
+                  : data.Data[i]["Status"];
+
+                  data.Data[i]["Date"] =
+                  data.Data[i]["Date"] == undefined
+                    ? "-"
+                    : convertdateformate(data.Data[i]["Date"]);
+  
+                  data.Data[i]["Reason"] = 
+                    data.Data[i]["Reason"] == undefined
+                    ? "-"
+                    : data.Data[i]["Reason"];
+
+                $("#displaydata_m").append(
+                  "<tr><td>" +
+                    data.Data[i]["Eid"].Name +
+                    "</td><td>" +
+                    data.Data[i]["Eid"].SubCompany.Name +
+                    "</td><td>" +
+                    convertdateformate(data.Data[i]["Date"]) +
+                    "</td><td>" +
+                    data.Data[i]["Reason"]+
+                    "</td><td>"+
+                    data.Data[i]["Type"]+
+                    "</td><td>"+
+                    data.Data[i]["Status"]+
+                    "</td><td>"+
+                    '<a id="approve_m" href="memodetails.php?id=' +
+                    data.Data[i]["_id"] +
+                    '"><button class="btn btn-primary" style="widht:50px">Approve</button></a>' +"  "+
+                    '<a id="disapprove_m" href="memodetails.php?id=' +
+                    data.Data[i]["_id"] +
+                    '"><button class="btn btn-danger" style="widht:50px">Disapprove</button></a>' +
+                    "</td></tr>"
+                );
+              }
+            }
+        }
+      },
+    });
+  }
+
+  function convertdateformate(date){
+    if(date.includes('T')){
+      date = date.split('T')[0];
+      date = date.split('-');
+      date = date[2]+'/'+date[1]+'/'+date[0];
+    }
+    return date;
+  }
+
 });

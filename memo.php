@@ -54,28 +54,50 @@
               </div>
               <!-- /.col-md-6 -->
               <div class="col-md-12">
-              <div class="card">              
-              <div class="card-body p-0 table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">Id</th>
-                      <th>Name</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                      <th>Status</th>
-                      <th>View</th>
-                    </tr>
-                  </thead>
-                  <tbody id="displaydata">
-                    <tr>
-                      <td colspan='6' class='text-center font-weight-bold'>Search Above for Memo</td>
-                    </tr>          
-                  </tbody>
-                </table>
+                <div class="card">              
+                  <div class="card-body p-0 table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th style="width: 10px">Id</th>
+                          <th>Name</th>
+                          <th>Date</th>
+                          <th>Time</th>
+                          <th>Type</th>
+                          <th>View</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="displaydata">
+                        <tr>
+                          <td colspan='6' class='text-center font-weight-bold'>Search Above for Memo</td>
+                        </tr>          
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
-              <!-- /.card-body -->
-            </div>
+
+              <div class="col-md-12">
+                <div class="card">              
+                  <div class="card-body p-0 table-responsive">
+                    <table class="table table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>SubCompany Name</th>
+                          <th>Date</th>
+                          <th>Reason</th>
+                          <th>Duty Type</th>
+                          <th>Status</th>
+                          <th class="text-center">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody id="displaydata_m">      
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- /.row -->
