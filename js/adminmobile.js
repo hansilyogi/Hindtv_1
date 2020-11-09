@@ -4,12 +4,13 @@ $(document).ready(function () {
     // loadpresentEmployee();
     // countleaveapply();
     loadname();
-
+    
     function loadname(){
         console.log("asdd");
+        var name = '5f0da0f5115d4a93ec03fe5f';
         $.ajax({
             type:"POST",
-            url: "http://hindtv.herokuapp.com/api/login/getName/5f0da0f5115d4a93ec03fe5e",
+            url: `http://hindtv.herokuapp.com/api/login/getName/${name}`,
             dataType: "json",
             cache: false,
             success: function(data){

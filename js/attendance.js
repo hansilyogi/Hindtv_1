@@ -93,7 +93,7 @@ $(document).ready(function () {
       },
       success: function (data) {
         if (data.isSuccess == true) {
-          //console.log(data);
+          console.log(data);
           $("#displaydata").html("");
           for (i = 0; i < data.Data.length; i++) {
             checkstring = "http://www.google.com/maps/place/";

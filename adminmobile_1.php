@@ -5,7 +5,7 @@
     <style>
       /* Set the size of the div element that contains the map */
       #map {
-        height: 600px; /* The height is 400 pixels */
+        height: 400px; /* The height is 400 pixels */
         width: 100%; /* The width is the width of the web page */
       }
     </style>
@@ -22,14 +22,14 @@
                         </div>
                     </div>
                     <div class="row"> 
-                        <div class="col-lg-4 col-3">
-                            <div class="small-box" style="background-color:#008B8B">
+                        <div class="col-lg-5 col-12">
+                            <div class="small-box shadow" style="background-color:#008B8B">
                                 <div class="icon">
                                     <i class="fas fa-user-cog" style="color:black"></i>
                                 </div>
                                 <div class="inner">
                                     <h3><label class="right"> Welcome </label></h3>
-                                    <b><h4 class="text-dark p-1" style="color:black" id="admin_1" text="0"></b></h4>
+                                    <b><h4 class="text-dark" style="color:black" id="admin_1" text="0"></b></h4>
                                 </div>
                             </div>
                         </div>

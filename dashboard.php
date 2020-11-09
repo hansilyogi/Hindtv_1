@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <?php include('header.php'); ?>
-  <body class="hold-transition sidebar-mini">
+  <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
     <?php include('navbar.php'); ?>
       <div class="content-wrapper">
@@ -125,7 +125,7 @@
 
             <div class="card-body p-0">
               <div class="table-responsive">
-                <h4>Todays Memo</h4>
+                <h4>Today's Memo</h4>
                 <table class="table table-bordered table-hover m-0 ">
                   <thead>
                     <tr>
@@ -143,23 +143,6 @@
               </div>
             </div>
             <br>
-        
-            <!-- Subcompany wise employee present -->
-            <!-- <div class="card col-12">
-              <div class="card-header">
-                <h3 class="card-title">Display Data</h3>
-              </div>
-              <div class="card-body">
-                <table class="table table-bordered">
-                <thead>
-                <th>Sub Company Name</th>
-                <th>Number of Employee Present</th>
-                </thead>
-                  <tbody id="displaydata"></tbody>
-                </table>
-              </div>
-            </div> -->
-            <!-- End Subcompany wise employee present -->
           </div>
 
           <hr>

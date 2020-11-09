@@ -36,7 +36,7 @@ $(document).ready(function(){
     function loadmemo_data(){
       $.ajax({
         type:"POST",
-        url:"http://hindtv.herokuapp.com/api/attendance/memoExist",
+        url: $("#website-url").attr("value") + "attendance/memoExist",
         dataType: "json",
         cache: false,
         success:function(data){
@@ -54,7 +54,7 @@ $(document).ready(function(){
                     ? "-"
                     : data.Data[i]["Eid"];
   
-                  data.Data[i]["Status"] =
+                    data.Data[i]["Status"] =
                     data.Data[i]["Status"] == "false"
                     ? "-"
                     : data.Data[i]["Status"];

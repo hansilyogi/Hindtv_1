@@ -201,13 +201,13 @@ $(document).ready(function () {
   function loadmemo_data(){
     $.ajax({
       type:"POST",
-      url:"http://hindtv.herokuapp.com/api/attendance/memoExist",
+      url:$("#website-url").attr("value") + "attendance/memoExist",
       dataType: "json",
       cache: false,
       success:function(data){
         console.log(data);
         if(data.isSuccess ==  true){
-          $("#memo").text(data.Data.length);
+          // $("#memo").text(data.Data.length);
           $("#displaydata_m").html("");
           for (i = data.Data.length - 1; i > 0; i--) { 
             if(data.Data[i]["Eid"]==null || data.Data[i]["Eid"] == "-" || data.Data[i]["Eid"] == undefined ){

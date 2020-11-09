@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <?php include('header.php'); ?>
-  <body class="hold-transition sidebar-mini">
+  <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
     <?php include('navbar.php'); ?>
       <!-- Content Wrapper. Contains page content -->
@@ -89,8 +89,8 @@
               <div class="card-header">
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive">
-                <table class="table table-bordered">
+              <div class="card-body table-responsive p-0" style="height: 500px;">
+                <table class="table table-bordered table-hover table-head-fixed text-nowrap">
                   <thead>
                     <tr>
                       <th>Name</th>

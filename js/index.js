@@ -2,9 +2,13 @@ $(document).ready(function() {
     //var URL = "http://localhost:81/HindTV---FRONTEND/";
 
 
-    var URL = "http://15.206.236.83/"; 
+    // var URL = "http://15.206.236.83/"; 
     //server
-    // var URL = "http://localhost:8080/";  //localhost
+    var URL = "http://localhost:8080/";
+    //localhost
+
+    //befor $("#website-url").attr("value")
+    //after 'https://hindtv.herokuapp.com/api/'
 
     $(document).on("click", "#btn-login", function(e) {
         e.preventDefault();
@@ -55,7 +59,9 @@ $(document).ready(function() {
                 },
             });
         }
-    });/*
+    });
+    
+    /*
     $(document).on("click", "#btn-login", function(e) {
         e.preventDefault();
         val = validation();
