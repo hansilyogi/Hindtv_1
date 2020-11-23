@@ -7,6 +7,9 @@ $(document).ready(function () {
     loadleave();
     loadmemo();
 
+    // var jss = document.cookie;
+    // console.log(jss);
+
     function loadname(){
         $.ajax({
             type:"POST",
