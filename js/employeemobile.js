@@ -2,8 +2,30 @@ $(document).ready(function () {
     
     emp_id = "5f0da2976d1e74002493fa48";
 
+    loadname();
     loadleave();
     loadmemo();
+
+    function loadname(){
+        $.ajax({
+            type:"POST",
+            url: `http://hindtv.herokuapp.com/api/login/getName/${emp_id}`,
+            dataType: "json",
+            cache: false,
+            success: function(data){
+                console.log(data);
+                if(data.isSuccess == true){
+                    if(data.Data == null){
+                        $("#admin_1").text(0);    
+                    }
+                    $("#admin_1").text(data.Data[0].Name);
+                }
+                else{
+                    $("#admin_1").text(0);  
+                }
+            },
+        });
+    }
     
     function loadleave(){
         $.ajax({
