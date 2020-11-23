@@ -4,13 +4,15 @@ $(document).ready(function () {
     // loadpresentEmployee();
     // countleaveapply();
     loadname();
+    loadpresent();
+    loadmemo();
+    countleave();
     
     function loadname(){
-        console.log("asdd");
-        var name = '5f0da0f5115d4a93ec03fe5f';
+        var emp_id = '5f0da0f5115d4a93ec03fe5f';
         $.ajax({
             type:"POST",
-            url: `http://hindtv.herokuapp.com/api/login/getName/${name}`,
+            url: `http://hindtv.herokuapp.com/api/login/getName/${emp_id}`,
             dataType: "json",
             cache: false,
             success: function(data){
@@ -23,6 +25,75 @@ $(document).ready(function () {
                 }
                 else{
                     $("#admin_1").text(0);  
+                }
+            },
+        });
+    }
+
+    function loadpresent(){
+        $.ajax({
+            type:"POST",
+            url: $("#website-url").attr("value") + "dashboard",
+            data : {
+                type:"getempdata",
+                token: $("#website-token").attr("value"),
+            },
+            dataType: "json",
+            cache: false,
+            success: function(data){
+                if(data.isSuccess == true){
+                    if(data.Data == null){
+                        $("#present").text(0);    
+                    }
+                    $("#present").text(data.Data);
+                }
+                else{
+                    $("#present").text(0);  
+                }
+            },
+        });
+    }
+
+    function loadmemo(){
+        $.ajax({
+            type:"POST",
+            url: $("#website-url").attr("value") + "attendance/memoExist",
+            dataType: "json",
+            cache: false,
+            success: function(data){
+                if(data.isSuccess == true){
+                    if(data.Data == null){
+                        $("#memo").text(0);    
+                    }
+                    $("#memo").text(data.Data.length);
+                }
+                else{
+                    $("#memo").text(0);  
+                }
+            },
+        });
+    }
+
+    function countleave(){
+        $.ajax({
+            type:"POST",
+            url: $("#website-url").attr("value") + "dashboard",
+            data : {
+                type:"countleave",
+                token: $("#website-token").attr("value"),
+            },
+            dataType: "json",
+            cache: false,
+            success: function(data){
+              console.log(data);
+                if(data.isSuccess == true){
+                    if(data.Data == null){
+                        $("#leavecount").text(0);    
+                    }
+                    $("#leavecount").text(data.Data);
+                }
+                else{
+                    $("#leavecount").text(0);  
                 }
             },
         });
@@ -56,6 +127,7 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function (data) {
+                console.log(data);
                 if (data.isSuccess == true) {
                     $("#leave").text(data.Data);
                 }
@@ -73,6 +145,7 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function (data) {
+                console.log(data);
                 if (data.isSuccess == true) {
                     $("#leaverequest").text(data.Data);
                 }

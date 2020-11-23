@@ -88,7 +88,7 @@
 
                       <div class="form-group col-md-3">
                         <label>Leave Type</label>
-                        <select class="form-control mt-1" id="leavetype" name="leavetype">
+                        <select class="form-control mt-0" id="leavetype" name="leavetype">
                         <option value="Paid Leave">Paid Leave</option>
                         <option value="Unpaid Leave">Unpaid Leave</option>
                         </select>                    

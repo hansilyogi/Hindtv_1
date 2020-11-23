@@ -37,6 +37,50 @@
               </div>
             </div>
               <!-- /.col -->
+
+            <div class="row"> 
+                <div class="col-lg-4 col-6">
+                    <a href="attendance.php">
+                    <div class="small-box" style="background-color:#008B8B">
+                        <div class="icon">
+                            <i class="fas fa-user" style="color:black"></i>
+                        </div>
+                        <div class="inner">
+                            <h3><label class="badge badge-primary right" id="present" name="present" text="0"></label></h3>
+                            <h4 class="text-dark p-1" style="color:black"><b>Present</b></h4>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+          
+                <div class="col-lg-4 col-6">
+                    <a href="memo.php">
+                    <div class="small-box" style="background-color:#008B8B">
+                        <div class="icon">
+                            <i class="fas fa-sticky-note" style="color:black"></i>
+                        </div>
+                        <div class="inner">
+                            <h3><label class="badge badge-danger right" id="memo" name="memo" text="0"></label></h3>
+                            <h4 class="text-dark p-1"><b>Memo Issue</b></h4>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-6">
+                    <a href="leaveAction.php">
+                    <div class="small-box" style="background-color:#008B8B">
+                        <div class="icon">
+                            <i class="fas fa-sticky-note" style="color:black"></i>
+                        </div>
+                        <div class="inner">
+                            <h3><label class="badge badge-danger right" id="leavecount" name="leavecount" text="0"></label></h3>
+                            <h4 class="text-dark p-1"><b>Pending Leave</b></h4>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
               
           <!-- <div class="row"> 
             <div class="col-lg-4 col-6">

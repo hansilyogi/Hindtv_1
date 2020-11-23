@@ -76,11 +76,6 @@ $(document).ready(function () {
       });
     }
     
-    //change value on subcompany master's value selection
-      
-  
-    //change value on company master's value selection
-    
     //Insert value in data base
     $(document).on("click","#btn-submit",function(e){
         e.preventDefault();        
