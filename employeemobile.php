@@ -23,7 +23,8 @@
                     </div>
                     <div class="row"> 
                         <div class="col-lg-5 col-12">
-                            <div class="small-box shadow" style="background-color:#ede6e1">
+                            <!-- <div class="small-box shadow" style="background-color:#ede6e1"> -->
+                            <div class="small-box shadow" style="background-color:#00bfff">
                                 <div class="icon">
                                     <i class="fas fa-user-cog" style="color:black"></i>
                                 </div>
@@ -44,7 +45,7 @@
                         </div>
                         <div class="inner">
                             <h3><label class="badge badge-primary right" id="leave" name="leave" text="0"></label></h3>
-                            <h4 class="text-dark p-1" style="color:black"><b>Leave Request</b></h4>
+                            <h5 class="text-dark p-1" style="color:black"><b>Leave Request</b></h5>
                         </div>
                     </div>
                     </a>
@@ -58,7 +59,7 @@
                         </div>
                         <div class="inner">
                             <h3><label class="badge badge-danger right" id="memo" name="memo" text="0"></label></h3>
-                            <h4 class="text-dark p-1"><b>Total Memo</b></h4>
+                            <h5 class="text-dark p-1" style="color:black"><b>Total Memo</b></h5>
                         </div>
                     </div>
                     </a>

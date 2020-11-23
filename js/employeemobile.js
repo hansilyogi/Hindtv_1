@@ -17,7 +17,6 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function(data){
-                console.log(data);
                 if(data.isSuccess == true){
                     if(data.Data == null){
                         $("#admin_1").text(0);    
@@ -41,7 +40,6 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function(data){
-                console.log(data)
                 if(data.isSuccess == true){
                     if(data.Data == null){
                         $("#leave").text(0);   
@@ -87,7 +85,6 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function(data){
-                console.log(data);
                 if(data.isSuccess == true){
                     if(data.Data == null){
                         $("#memo").text(0);    
