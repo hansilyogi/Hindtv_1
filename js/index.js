@@ -6,7 +6,7 @@ $(document).ready(function() {
     //server
     // var URL = "http://localhost:8080/";
     //localhost
-    var URL = "https://hindtv98.herokuapp.com/";
+    var URL = "http://hindtv98.herokuapp.com/";
 
     //befor $("#website-url").attr("value")
     //after 'https://hindtv.herokuapp.com/api/'
