@@ -4,8 +4,9 @@ $(document).ready(function() {
 
     // var URL = "http://15.206.236.83/";
     //server
-    var URL = "http://localhost:8080/";
+    // var URL = "http://localhost:8080/";
     //localhost
+    var URL = "https://hindtv98.herokuapp.com/";
 
     //befor $("#website-url").attr("value")
     //after 'https://hindtv.herokuapp.com/api/'
