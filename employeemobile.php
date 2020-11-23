@@ -44,7 +44,7 @@
                         </div>
                         <div class="inner">
                             <h3><label class="badge badge-primary right" id="leave" name="leave" text="0"></label></h3>
-                            <h4 class="text-dark p-1" style="color:black"><b>Total Leave</b></h4>
+                            <h4 class="text-dark p-1" style="color:black"><b>Leave Request</b></h4>
                         </div>
                     </div>
                     </a>
@@ -63,6 +63,22 @@
                     </div>
                     </a>
                 </div>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <h4>All Leave Request</h4>
+                <table class="table table-bordered table-hover m-0 ">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Description</th>
+                      <th>Reason</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="displaydata_h"></tbody>
+                </table>
+              </div>
             </div>
             <div class="card-body p-0">
               <div class="table-responsive">

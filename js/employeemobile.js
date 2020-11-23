@@ -1,6 +1,7 @@
 $(document).ready(function () {
     
-    emp_id = "5f0da2976d1e74002493fa48";
+    // emp_id = "5f0da2976d1e74002493fa48";
+    emp_id = "5f4778062549e46190fec1c5";
 
     loadname();
     loadleave();
@@ -47,6 +48,19 @@ $(document).ready(function () {
                 else{
                     $("#leave").text(0);
                 }
+                for (i = 0; i < data.Data.length; i++){
+                    $("#displaydata_h").append(
+                        "<tr><td>" +
+                          convertdateformate(data.Data[i].ApplyDate) +
+                          "</td><td>" +
+                          data.Data[i].Description+
+                          "</td><td>"+
+                          data.Data[i].Reason.MasterName+
+                          "</td><td>"+
+                          data.Data[i].LeaveStatus+
+                          "</td></tr>"
+                      );
+                }
             },
         });
     }
@@ -80,7 +94,7 @@ $(document).ready(function () {
                 else{
                     $("#memo").text(0);  
                 }
-                for (i = data.Data.length - 1; i > 0; i--){
+                for (i = 0; i < data.Data.length; i++){
                     $("#displaydata_m").append(
                         "<tr><td>" +
                           convertdateformate(data.Data[i].Date) +
