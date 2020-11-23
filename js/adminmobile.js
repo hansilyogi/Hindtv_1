@@ -3,9 +3,10 @@ $(document).ready(function () {
     // var TOKEN = $("#website-token").attr("value");
     // loadpresentEmployee();
     // countleaveapply();
-    const params = new URLSearchParams(window.location.search);
-    const myParam = params.get('id');
-    final = myParam.slice(1,-1);
+
+    const ad_params = new URLSearchParams(window.location.search);
+    const admin_Param = ad_params.get('id');
+    final = admin_Param.slice(1,-1);
     console.log(final);
     emp_id = final;
 

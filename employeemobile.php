@@ -10,7 +10,7 @@
       }
     </style>
 </head>
-<?php include('header.php'); ?>
+<?php include('headermobile.php'); ?>
   <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <div class="content-wrapper">
@@ -100,7 +100,6 @@
             </div>
         </div>
         <?php include('script.php'); ?>
-        <?php include('index.'); ?>
     <script src="js/employeemobile.js"></script>
   </body>
 </html>
