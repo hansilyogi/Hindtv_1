@@ -40,7 +40,7 @@ $(document).ready(function(){
         dataType: "json",
         cache: false,
         success:function(data){
-          console.log(data);
+          // console.log(data);
           if(data.isSuccess ==  true){
             $("#memo").text(data.Data.length);
             $("#displaydata").html("");
@@ -260,7 +260,7 @@ $(document).ready(function(){
             dataType: "json",
             cache: false,
             success: function(data){
-              console.log(data);
+              // console.log(data);
                 if(data.isSuccess == true){
                     if(data.Data == null){
                         $("#leavecount").text(0);    
@@ -285,7 +285,7 @@ $(document).ready(function(){
         },
         success:function(data){
           if(data.isSuccess ==  true){
-            console.log(data);
+            // console.log(data);
             $("#displaydata_h").html("");
             for (i = 0; i < data.Data.length; i++) {   
               data.Data[i]["EmployeeId"] =

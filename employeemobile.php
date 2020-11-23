@@ -63,10 +63,10 @@
                         </div>
                     </div>
                     </a>
-                </div>
+                </div><br>
             </div>
             <div class="card-body p-0">
-                <h4>All Leave Request</h4>
+                <h4><b>All Leave Request</b></h4>
               <div class="table-responsive" style="height:200px;">
                 <table class="table table-bordered table-hover table-head-fixed text-nowrap">
                   <thead>
@@ -80,9 +80,9 @@
                   <tbody id="displaydata_h"></tbody>
                 </table>
               </div>
-            </div>
+            </div><br>
             <div class="card-body p-0">
-                <h4>All Memo's</h4>
+                <h4><b>All Memo's</b></h4>
               <div class="table-responsive" style="height:200px;">
                 <table class="table table-bordered table-hover table-head-fixed text-nowrap">
                   <thead>
@@ -100,7 +100,7 @@
             </div>
         </div>
         <?php include('script.php'); ?>
+        <?php include('index.'); ?>
     <script src="js/employeemobile.js"></script>
   </body>
 </html>
-

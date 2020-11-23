@@ -9,6 +9,7 @@ $(document).ready(function() {
 
     //befor $("#website-url").attr("value")
     //after 'https://hindtv.herokuapp.com/api/'
+    var ses;
 
     $(document).on("click", "#btn-login", function(e) {
         e.preventDefault();
@@ -30,7 +31,7 @@ $(document).ready(function() {
                 success: function(data) {
                     
                     if (data.isSuccess == true) {
-                        console.log(data);
+                        // console.log(data);
                         // sessionready(data.Data[0]._id);
                         // alert(data.Data[0]._id);
                         // $(location).attr(

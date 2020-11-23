@@ -1,14 +1,18 @@
 $(document).ready(function () {
     
-    // emp_id = "5f0da2976d1e74002493fa48";
-    emp_id = "5f4778062549e46190fec1c5";
+    const params = new URLSearchParams(window.location.search);
+    const myParam = params.get('id');
+    final = myParam.slice(1,-1);
+    console.log(final);
+    emp_id = final;
 
     loadname();
     loadleave();
     loadmemo();
 
-    // var jss = document.cookie;
-    // console.log(jss);
+    // for (const param of params) {
+    //     var c = param;
+    // }
 
     function loadname(){
         $.ajax({
