@@ -66,9 +66,9 @@
                 </div>
             </div>
             <div class="card-body p-0">
-              <div class="table-responsive">
                 <h4>All Leave Request</h4>
-                <table class="table table-bordered table-hover m-0 ">
+              <div class="table-responsive" style="height:200px;">
+                <table class="table table-bordered table-hover table-head-fixed text-nowrap">
                   <thead>
                     <tr>
                       <th>Date</th>
@@ -82,9 +82,9 @@
               </div>
             </div>
             <div class="card-body p-0">
-              <div class="table-responsive">
                 <h4>All Memo's</h4>
-                <table class="table table-bordered table-hover m-0 ">
+              <div class="table-responsive" style="height:200px;">
+                <table class="table table-bordered table-hover table-head-fixed text-nowrap">
                   <thead>
                     <tr>
                       <th>Date</th>
