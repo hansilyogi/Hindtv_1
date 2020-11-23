@@ -10,7 +10,7 @@
       }
     </style>
 </head>
-<?php include('header.php'); ?>
+<?php include('headermobile.php'); ?>
   <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <div class="content-wrapper">
