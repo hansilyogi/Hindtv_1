@@ -12,11 +12,10 @@ $(document).ready(function () {
 
 
     loadname();
-    loadpresent();
-    loadmemo();
-    countleave();
+    admin_company();
     
     function loadname(){
+        emp_id="5f382e0685312720209bbe2a"
         $.ajax({
             type:"POST",
             url: `http://hindtv.herokuapp.com/api/login/getName/${emp_id}`,
@@ -35,6 +34,36 @@ $(document).ready(function () {
                 }
             },
         });
+    }
+
+    function admin_company(){
+        $.ajax({
+            type:"POST",
+            url: `https://hindtv.herokuapp.com/api/dashboard/getempdataWeb`,
+            data : {
+                "adminId" : "5f382e0685312720209bbe2a"
+            },
+            dataType: "json",
+            cache: false,
+            success: function(data){
+                console.log(data);
+                if(data.isSuccess == true){
+                    if(data.EmployeeCount == 0){
+                        $('#present').text(0);
+                        $("#totalemp").text(0);
+                        $("#memo").text(0);
+                        $("#leavecount").text(0);
+                    }
+                    else{
+                        $("#present").text(data.EmployeeCount);
+                        $("#totalemp").text(data.AttendanceCount);
+                        $("#memo").text(data.MemoCount);
+                        $("#leavecount").text(data.LeaveCount);
+
+                    }
+                }
+            }
+        })
     }
 
     function loadpresent(){
@@ -106,23 +135,6 @@ $(document).ready(function () {
         });
     }
 
-    // function loadpresentEmployee(){
-    //     console.log("asdddss");
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "http://hindtv.herokuapp.com/api/login/getName/5f0da0f5115d4a93ec03fe5e",
-    //         dataType: "json",
-    //         cache: false,
-    //         success: function (data) {
-    //             console.log(data);
-    //             if (data.isSuccess == true) {
-    //                 console.log("asd");
-    //                 $("#admin_1").text("Welcome" + data.Data.Name);
-    //             }
-    //             loadleaveonemployee();
-    //         }
-    //     });
-    // }
 
     function loadleaveonemployee(){
         $.ajax({
