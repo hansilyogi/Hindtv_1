@@ -3,13 +3,19 @@ $(document).ready(function () {
     // var TOKEN = $("#website-token").attr("value");
     // loadpresentEmployee();
     // countleaveapply();
+    const params = new URLSearchParams(window.location.search);
+    const myParam = params.get('id');
+    final = myParam.slice(1,-1);
+    console.log(final);
+    emp_id = final;
+
+
     loadname();
     loadpresent();
     loadmemo();
     countleave();
     
     function loadname(){
-        var emp_id = '5f0da0f5115d4a93ec03fe5f';
         $.ajax({
             type:"POST",
             url: `http://hindtv.herokuapp.com/api/login/getName/${emp_id}`,
