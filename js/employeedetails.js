@@ -50,6 +50,7 @@ $(document).ready(function () {
 
   function subcompany() {
     var id = COMPANY;
+    console.log(id);
     $.ajax({
       type: "POST",
       url: $("#website-url").attr("value") + "subcompany",

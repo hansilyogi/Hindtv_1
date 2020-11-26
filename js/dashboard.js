@@ -20,11 +20,12 @@ $(document).ready(function(){
             dataType: "json",
             cache: false,
             success: function(data){
+              console.log(data);
                 if(data.isSuccess == true){
                     if(data.Data == null){
                         $("#present").text(0);    
                     }
-                    $("#present").text(data.Data);
+                    $("#present").text(++data.Data);
                 }
                 else{
                     $("#present").text(0);  
@@ -44,7 +45,8 @@ $(document).ready(function(){
           if(data.isSuccess ==  true){
             $("#memo").text(data.Data.length);
             $("#displaydata").html("");
-            for (i = 0; i <= data.Data.length; i++) { 
+            for(i = 0; i <= data.Data.length; i++) { 
+              // console.log(data.Data.length);
               if(data.Data[i]["Eid"]==null || data.Data[i]["Eid"] == "-" || data.Data[i]["Eid"] == undefined ){
                 i--;
               } 

@@ -39,12 +39,12 @@
                 <div class="col-lg-4 col-6">
                     <!-- <a href="attendance.php"> -->
                     <a href="#">
-                    <div class="small-box" style="background-color:#008B8B">
+                    <div class="small-box" style="background-color:#008B8B; height:100px;">
                         <div class="icon">
                             <i class="fas fa-user" style="color:black"></i>
                         </div>
                         <div class="inner">
-                            <h4><label class="badge badge-primary right" id="totalemp" name="totalemp" text="0"></label></h4>
+                            <h3><label class="badge badge-primary right" id="totalemp" name="totalemp" text="0"></label></h3>
                             <h4 class="text-dark p-1" style="color:black"><b> Employee </b></h4>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                 <div class="col-lg-4 col-6">
                     <!-- <a href="memo.php"> -->
                     <a href="#">
-                    <div class="small-box" style="background-color:#008B8B">
+                    <div class="small-box" style="background-color:#008B8B; height:100px;">
                         <div class="icon">
                             <i class="fas fa-sticky-note" style="color:black"></i>
                         </div>
@@ -69,12 +69,12 @@
                 <div class="col-lg-4 col-6">
                     <!-- <a href="attendance.php"> -->
                     <a href="#">
-                    <div class="small-box" style="background-color:#008B8B">
+                    <div class="small-box" style="background-color:#008B8B; height:100px;">
                         <div class="icon">
                             <i class="fas fa-user" style="color:black"></i>
                         </div>
                         <div class="inner">
-                            <h3><label class="badge badge-primary right" id="present" name="present" text="0"></label></h3>
+                            <h3><label class="badge badge-success right" id="present" name="present" text="0"></label></h3>
                             <h4 class="text-dark p-1" style="color:black"><b>Present</b></h4>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                 <div class="col-lg-4 col-6">
                     <!-- <a href="leaveAction.php"> -->
                     <a href="#">
-                    <div class="small-box" style="background-color:#008B8B">
+                    <div class="small-box" style="background-color:#008B8B; height:100px;">
                         <div class="icon">
                             <i class="fas fa-sticky-note" style="color:black"></i>
                         </div>
@@ -95,7 +95,23 @@
                     </div>
                     </a>
                 </div>
-            </div>
+                <br><hr>
+                <div class="card-body p-0">
+              <h4><b>Today's Absent</b></h4>
+              <div class="table-responsive" style="height:200px;">
+                <table class="table table-bordered table-hover table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Date</th>
+                      <th>Memo</th>
+                    </tr>
+                  </thead>
+                  <tbody id="displaydata_m"></tbody>
+                </table>
+              </div>
+            </div><br><br>
+            </div><br>
             </div>
         </div>
         <?php include('script.php'); ?>

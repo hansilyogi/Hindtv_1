@@ -7,15 +7,15 @@ $(document).ready(function () {
     const ad_params = new URLSearchParams(window.location.search);
     const admin_Param = ad_params.get('id');
     final = admin_Param.slice(1,-1);
-    console.log(final);
+    // console.log(final);
     emp_id = final;
 
 
-    loadname();
+    // loadname();
     admin_company();
     
     function loadname(){
-        emp_id="5f382e0685312720209bbe2a"
+        // emp_id="5f382e0685312720209bbe2a"
         $.ajax({
             type:"POST",
             url: `http://hindtv.herokuapp.com/api/login/getName/${emp_id}`,
@@ -41,12 +41,23 @@ $(document).ready(function () {
             type:"POST",
             url: `https://hindtv.herokuapp.com/api/dashboard/getempdataWeb`,
             data : {
-                "adminId" : "5f382e0685312720209bbe2a"
+                "adminId" : emp_id
             },
             dataType: "json",
             cache: false,
             success: function(data){
-                console.log(data);
+                // console.log(data);
+                var res = data.Data.Absent;
+                console.log(res);
+                if(data.isSuccess == true){
+                    if(data.Data == null){
+                        $("#admin_1").text(0);    
+                    }
+                    $("#admin_1").text(data.Data.AdminName[0].name);
+                }
+                else{
+                    $("#admin_1").text(0);  
+                }
                 if(data.isSuccess == true){
                     if(data.EmployeeCount == 0){
                         $('#present').text(0);
@@ -55,12 +66,23 @@ $(document).ready(function () {
                         $("#leavecount").text(0);
                     }
                     else{
-                        $("#present").text(data.EmployeeCount);
-                        $("#totalemp").text(data.AttendanceCount);
+                        $("#present").text(data.AttendanceCount);
+                        $("#totalemp").text(data.EmployeeCount);
                         $("#memo").text(data.MemoCount);
                         $("#leavecount").text(data.LeaveCount);
 
                     }
+                }
+                for (i = 0; i < data.Data.Absent.length; i++){
+                    $("#displaydata_m").append(
+                        "<tr><td>" +
+                          res[i].EmployeeId.Name +
+                          "</td><td>" +
+                          res[i].Date+
+                          "</td><td>"+
+                          res[i].Memo+
+                          "</td></tr>"
+                      );
                 }
             }
         })

@@ -15,7 +15,6 @@ $(document).ready(function () {
  
   //LOAD SUBCOMPANYS MASTER DATA
   function loadsubcompany() {
-  
     $.ajax({
       type: "POST",
       url: $("#website-url").attr("value") + "subcompany",
@@ -25,6 +24,7 @@ $(document).ready(function () {
       success: function (data) {
         if (data.isSuccess == true) {
           subcompanydata = data;
+          console.log(subcompanydata);
           $("#subcompany").html("");
           if(data.Data.length > 1){
             for (i = 0; i < data.Data.length; i++) {
@@ -63,8 +63,10 @@ $(document).ready(function () {
       success: function (data) {
         if (data.isSuccess == true) {
           timingdata = data;
+          console.log(timingdata);
           $("#timing").html("");
           TIMING = data.Data._id;
+          console.log(TIMING);
           if(data.Data.length>1){
             for (i = 0; i < data.Data.length; i++) {
               $("#timing").append(

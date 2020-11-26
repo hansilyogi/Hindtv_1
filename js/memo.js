@@ -209,7 +209,7 @@ $(document).ready(function () {
         if(data.isSuccess ==  true){
           // $("#memo").text(data.Data.length);
           $("#displaydata_m").html("");
-          for (i = data.Data.length - 1; i > 0; i--) { 
+          for (i = 0; i < data.Data.length; i++) { 
             if(data.Data[i]["Eid"]==null || data.Data[i]["Eid"] == "-" || data.Data[i]["Eid"] == undefined ){
               i--;
             } 

@@ -39,7 +39,7 @@
             <div class="row"> 
                 <div class="col-lg-4 col-6">
                     <a href="#">
-                    <div class="small-box" style="background-color:lightblue">
+                    <div class="small-box" style="background-color:lightblue; height:150px;">
                         <div class="icon">
                             <i class="fas fa-user" style="color:black"></i>
                         </div>
@@ -53,7 +53,7 @@
           
                 <div class="col-lg-4 col-6">
                     <a href="#">
-                    <div class="small-box" style="background-color:lightblue">
+                    <div class="small-box" style="background-color:lightblue; height:150px;">
                         <div class="icon">
                             <i class="fas fa-sticky-note" style="color:black"></i>
                         </div>
@@ -82,7 +82,7 @@
               </div>
             </div><br>
             <div class="card-body p-0">
-                <h4><b>All Memo's</b></h4>
+              <h4><b>All Memo's</b></h4>
               <div class="table-responsive" style="height:200px;">
                 <table class="table table-bordered table-hover table-head-fixed text-nowrap">
                   <thead>
@@ -96,7 +96,7 @@
                   <tbody id="displaydata_m"></tbody>
                 </table>
               </div>
-            </div>
+            </div><br><br>
             </div>
         </div>
         <?php include('script.php'); ?>
