@@ -22,7 +22,6 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function(data){
-                console.log(data);
                 if(data.isSuccess == true){
                     if(data.Data == null){
                         $("#admin_1").text(0);    
@@ -48,7 +47,6 @@ $(document).ready(function () {
             success: function(data){
                 // console.log(data);
                 var res = data.Data.Absent;
-                console.log(res);
                 if(data.isSuccess == true){
                     if(data.Data == null){
                         $("#admin_1").text(0);    

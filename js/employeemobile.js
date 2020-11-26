@@ -3,7 +3,6 @@ $(document).ready(function () {
     const params = new URLSearchParams(window.location.search);
     const myParam = params.get('id');
     final = myParam.slice(1,-1);
-    console.log(myParam);
     emp_id = final;
 
     loadname();
