@@ -3,10 +3,9 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      /* Set the size of the div element that contains the map */
       #map {
-        height: 400px; /* The height is 400 pixels */
-        width: 100%; /* The width is the width of the web page */
+        height: 400px;
+        width: 100%;
       }
     </style>
 </head>
@@ -38,7 +37,7 @@
             <div class="row"> 
                 <div class="col-lg-4 col-6">
                     <!-- <a href="attendance.php"> -->
-                    <a href="totalempmobile.php">
+                    <a href="#">
                     <div class="small-box" style="background-color:#008B8B; height:130px;">
                         <div class="icon">
                             <i class="fas fa-user" style="color:black"></i>
@@ -53,7 +52,7 @@
 
                 <div class="col-lg-4 col-6">
                     <!-- <a href="memo.php"> -->
-                    <a href="totmemomobile.php">
+                    <a href="#">
                     <div class="small-box" style="background-color:#008B8B; height:130px;">
                         <div class="icon">
                             <i class="fas fa-sticky-note" style="color:black"></i>
@@ -68,7 +67,7 @@
 
                 <div class="col-lg-4 col-6">
                     <!-- <a href="attendance.php"> -->
-                    <a href="presentmobile.php">
+                    <a href="totalempmobile.php">
                     <div class="small-box" style="background-color:#008B8B; height:130px;">
                         <div class="icon">
                             <i class="fas fa-user" style="color:black"></i>
@@ -83,7 +82,7 @@
 
                 <div class="col-lg-4 col-6">
                     <!-- <a href="leaveAction.php"> -->
-                    <a href="totalleavemobile.php">
+                    <a href="#">
                     <div class="small-box" style="background-color:#008B8B; height:130px;">
                         <div class="icon">
                             <i class="fas fa-sticky-note" style="color:black"></i>
@@ -96,7 +95,7 @@
                     </a>
                 </div>
                 <br><hr>
-                <div class="card-body p-0">
+                <!-- <div class="card-body p-0">
                     <h4><b>Today's Absent</b></h4>
                     <div class="table-responsive" style="height:200px;">
                         <table class="table table-bordered table-hover table-head-fixed text-nowrap">
@@ -110,7 +109,7 @@
                             <tbody id="displaydata_m"></tbody>
                         </table>
                     </div>
-                </div><br><br>
+                </div><br><br> -->
             </div><br>
             </div>
         </div>
