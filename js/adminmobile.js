@@ -9,6 +9,7 @@ $(document).ready(function () {
     final = admin_Param.slice(1,-1);
     // console.log(final);
     emp_id = final;
+    localStorage.setItem("empid", emp_id);
 
 
     // loadname();
@@ -45,7 +46,7 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function(data){
-                // console.log(data);
+                console.log(data);
                 var res = data.Data.Absent;
                 if(data.isSuccess == true){
                     if(data.Data == null){
@@ -74,11 +75,11 @@ $(document).ready(function () {
                 for (i = 0; i < data.Data.Absent.length; i++){
                     $("#displaydata_m").append(
                         "<tr><td>" +
-                          res[i].EmployeeId.Name +
+                          res[i].Name +
                           "</td><td>" +
-                          res[i].Date+
+                          res[i].Department+
                           "</td><td>"+
-                          res[i].Memo+
+                          res[i].Designation+
                           "</td></tr>"
                       );
                 }

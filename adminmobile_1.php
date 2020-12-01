@@ -38,8 +38,8 @@
             <div class="row"> 
                 <div class="col-lg-4 col-6">
                     <!-- <a href="attendance.php"> -->
-                    <a href="#">
-                    <div class="small-box" style="background-color:#008B8B; height:100px;">
+                    <a href="totalempmobile.php">
+                    <div class="small-box" style="background-color:#008B8B; height:130px;">
                         <div class="icon">
                             <i class="fas fa-user" style="color:black"></i>
                         </div>
@@ -53,8 +53,8 @@
 
                 <div class="col-lg-4 col-6">
                     <!-- <a href="memo.php"> -->
-                    <a href="#">
-                    <div class="small-box" style="background-color:#008B8B; height:100px;">
+                    <a href="totmemomobile.php">
+                    <div class="small-box" style="background-color:#008B8B; height:130px;">
                         <div class="icon">
                             <i class="fas fa-sticky-note" style="color:black"></i>
                         </div>
@@ -68,8 +68,8 @@
 
                 <div class="col-lg-4 col-6">
                     <!-- <a href="attendance.php"> -->
-                    <a href="#">
-                    <div class="small-box" style="background-color:#008B8B; height:100px;">
+                    <a href="presentmobile.php">
+                    <div class="small-box" style="background-color:#008B8B; height:130px;">
                         <div class="icon">
                             <i class="fas fa-user" style="color:black"></i>
                         </div>
@@ -83,8 +83,8 @@
 
                 <div class="col-lg-4 col-6">
                     <!-- <a href="leaveAction.php"> -->
-                    <a href="#">
-                    <div class="small-box" style="background-color:#008B8B; height:100px;">
+                    <a href="totalleavemobile.php">
+                    <div class="small-box" style="background-color:#008B8B; height:130px;">
                         <div class="icon">
                             <i class="fas fa-sticky-note" style="color:black"></i>
                         </div>
@@ -97,20 +97,20 @@
                 </div>
                 <br><hr>
                 <div class="card-body p-0">
-              <h4><b>Today's Absent</b></h4>
-              <div class="table-responsive" style="height:200px;">
-                <table class="table table-bordered table-hover table-head-fixed text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Date</th>
-                      <th>Memo</th>
-                    </tr>
-                  </thead>
-                  <tbody id="displaydata_m"></tbody>
-                </table>
-              </div>
-            </div><br><br>
+                    <h4><b>Today's Absent</b></h4>
+                    <div class="table-responsive" style="height:200px;">
+                        <table class="table table-bordered table-hover table-head-fixed text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th>Designation</th>
+                                </tr>
+                            </thead>
+                            <tbody id="displaydata_m"></tbody>
+                        </table>
+                    </div>
+                </div><br><br>
             </div><br>
             </div>
         </div>

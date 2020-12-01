@@ -45,7 +45,7 @@
                         </div>
                         <div class="inner">
                             <h3><label class="badge badge-primary right" id="leave" name="leave" text="0"></label></h3>
-                            <h5 class="text-dark p-1" style="color:black"><b>Leave Request</b></h5>
+                            <h4 class="text-dark p-1" style="color:black"><b>Leave Request</b></h4>
                         </div>
                     </div>
                     </a>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="inner">
                             <h3><label class="badge badge-danger right" id="memo" name="memo" text="0"></label></h3>
-                            <h5 class="text-dark p-1" style="color:black"><b>Total Memo</b></h5>
+                            <h4 class="text-dark p-1" style="color:black"><b>Total Memo</b></h4>
                         </div>
                     </div>
                     </a>
