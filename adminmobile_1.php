@@ -67,7 +67,7 @@
 
                 <div class="col-lg-4 col-6">
                     <!-- <a href="attendance.php"> -->
-                    <a href="totalempmobile.php">
+                    <a href='http://15.206.236.83/totalempmobile.php?id=<?= $_GET['id'];?>'>
                     <div class="small-box" style="background-color:#008B8B; height:130px;">
                         <div class="icon">
                             <i class="fas fa-user" style="color:black"></i>

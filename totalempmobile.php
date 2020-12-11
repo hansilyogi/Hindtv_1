@@ -141,7 +141,7 @@
                                 </a>
                             </div><br><hr>
                         </div><br><br>
-                        <div class="row">
+                        <div class="row" style="width:100%;">
                             <div class="container">
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a data-toggle="tab" href="#home">Duty-In</a></li>
@@ -216,6 +216,7 @@
                                                             <th>Reason</th>
                                                             <th>Start-Date</th>
                                                             <th>End-Date</th>
+                                                            <th>Leave Status</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="displaydata_leave"></tbody>

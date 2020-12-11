@@ -87,7 +87,7 @@ $(document).ready(function(){
                       "</td><td>"+
                       '<a id="approve_m" href="memodetails.php?id=' +
                       data.Data[i]["_id"] +
-                      '"><button class="btn btn-primary" style="width:50px">Approve</button></a>' +"  "+
+                      '"><button class="btn btn-primary" style="">Approve</button></a>' +"  "+
                       '<a id="disapprove_m" href="memodetails.php?id=' +
                       data.Data[i]["_id"] +
                       '"><button class="btn btn-danger" style="widht:50px">Disapprove</button></a>' +
@@ -289,7 +289,8 @@ $(document).ready(function(){
           if(data.isSuccess ==  true){
             // console.log(data);
             $("#displaydata_h").html("");
-            for (i = 0; i < data.Data.length; i++) {   
+            for (i = 0; i < data.Data.length; i++) {
+              if(data.Data[i]["LeaveStatus"] == "Pending"){
               data.Data[i]["EmployeeId"] =
                 data.Data[i]["EmployeeId"] == undefined
                   ? "-"
@@ -341,6 +342,7 @@ $(document).ready(function(){
                   '"><button class="btn btn-danger" style="widht:50px">Disapprove</button></a>' +
                   "</td></tr>"
               );
+            }
            }
           }
         },

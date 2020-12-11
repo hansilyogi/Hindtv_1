@@ -46,7 +46,7 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function(data){
-                console.log(data);
+                // console.log(data);
                 var res = data.Data.Absent;
                 if(data.isSuccess == true){
                     if(data.Data == null){
@@ -142,7 +142,7 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function(data){
-              console.log(data);
+            //   console.log(data);
                 if(data.isSuccess == true){
                     if(data.Data == null){
                         $("#leavecount").text(0);    
@@ -167,7 +167,7 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function (data) {
-                console.log(data);
+                // console.log(data);
                 if (data.isSuccess == true) {
                     $("#leave").text(data.Data);
                 }
@@ -185,7 +185,7 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function (data) {
-                console.log(data);
+                // console.log(data);
                 if (data.isSuccess == true) {
                     $("#leaverequest").text(data.Data);
                 }

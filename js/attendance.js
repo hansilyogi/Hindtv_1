@@ -43,6 +43,7 @@ $(document).ready(function () {
   loadarea();
   loademployee();
   loadsubcompany();
+
   function loadsubcompany() {
     $.ajax({
       type: "POST",
@@ -56,6 +57,7 @@ $(document).ready(function () {
         if (data.isSuccess == true) {
           $("#subcompanyname").html("");
           $("#subcompanyname").append("<option value=0>All</option>");
+          SUBCOMPANY = $("#subcompanyname").val();
           for (i = 0; i < data.Data.length; i++) {
             $("#subcompanyname").append(
               "<option value=" +
@@ -68,8 +70,8 @@ $(document).ready(function () {
         }
       },
       complete:function(){
-        SUBCOMPANY = $("#subcompanyname").val();
         loademployee();
+        // console.log("1");
       }
     });
   }
@@ -93,7 +95,7 @@ $(document).ready(function () {
       },
       success: function (data) {
         if (data.isSuccess == true) {
-          console.log(data);
+          // console.log(data);
           $("#displaydata").html("");
           for (i = 0; i < data.Data.length; i++) {
             checkstring = "http://www.google.com/maps/place/";
@@ -185,7 +187,7 @@ $(document).ready(function () {
         );
       },
       success: function (data) {
-        console.log(data);
+        // console.log(data);
         if (data.isSuccess == true) {
           $("#displaydata").html("");
           for (i = 0; i < data.Data.length; i++) {
@@ -319,6 +321,7 @@ $(document).ready(function () {
       dataType: "json",
       cache: false,
       success: function (data) {
+        // console.log("2");
         if (data.isSuccess == true) {
           $("#employeename").html("");
           $("#employeename").append("<option value=0>All</option");
@@ -337,6 +340,11 @@ $(document).ready(function () {
   }
   $(document).on("change", "#area-filter", function () {
     SUBCOMPANY = $("#area-filter").val();
+    loademployee();
+  });
+
+  $(document).on("change", "#subcompanyname", function () {
+    SUBCOMPANY = $("#subcompanyname").val();
     loademployee();
   });
 });

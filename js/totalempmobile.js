@@ -1,7 +1,11 @@
 $(document).ready(function () {
 
-    var emp_id = localStorage.getItem("empid");
-    console.log(emp_id); 
+    // var emp_id = localStorage.getItem("empid");
+    // console.log(emp_id);
+    const ad_params = new URLSearchParams(window.location.search);
+    const admin_Param = ad_params.get('id');
+    final = admin_Param.slice(1,-1);
+    emp_id = final;
     var ein=0;
     var eout=0;
     admin_company();
@@ -109,6 +113,8 @@ $(document).ready(function () {
                             convertdateformate(lea[i].StartDate)+
                             "</td><td>"+
                             convertdateformate(lea[i].EndDate)+
+                            "</td><td>"+
+                            lea[i].LeaveStatus+
                             "</td></tr>"
                     );
                 }

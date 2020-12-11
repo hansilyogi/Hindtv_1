@@ -50,7 +50,7 @@
                       <button type="submit" class="btn btn-primary" id="btn-search-date">Submit</button>
                     </div>
                   </form>
-            </div>
+                </div>
               </div>
               <!-- /.col-md-6 -->
               <div class="col-md-12">
