@@ -24,7 +24,7 @@ $(document).ready(function () {
             type:"POST",
             url: "http://hindtv.herokuapp.com/api/dashboard/getempdataWeb",
             data : {
-                "adminId" : emp_id
+                "adminLoginId" : emp_id
             },
             dataType: "json",
             cache: false,
