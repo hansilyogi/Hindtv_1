@@ -1,52 +1,22 @@
 $(document).ready(function () {
-    // var TOKEN=$(location).attr("href").split("=")[1];
-    // var TOKEN = $("#website-token").attr("value");
-    // loadpresentEmployee();
-    // countleaveapply();
-
+    
     const ad_params = new URLSearchParams(window.location.search);
     const admin_Param = ad_params.get('id');
     final = admin_Param.slice(1,-1);
-    // console.log(final);
     emp_id = final;
-    localStorage.setItem("empid", emp_id);
 
-
-    // loadname();
     admin_company();
     
-    function loadname(){
-        // emp_id="5f382e0685312720209bbe2a"
-        $.ajax({
-            type:"POST",
-            url: `http://hindtv.herokuapp.com/api/login/getName/${emp_id}`,
-            dataType: "json",
-            cache: false,
-            success: function(data){
-                if(data.isSuccess == true){
-                    if(data.Data == null){
-                        $("#admin_1").text(0);    
-                    }
-                    $("#admin_1").text(data.Data[0].Name);
-                }
-                else{
-                    $("#admin_1").text(0);  
-                }
-            },
-        });
-    }
-
     function admin_company(){
         $.ajax({
             type:"POST",
-            url: $("#website-url").attr("value") +"dashboard/getempdataWeb",
+            url: "http://hindtv.herokuapp.com/api/dashboard/getempdataWeb",
             data : {
                 "adminId" : emp_id
             },
             dataType: "json",
             cache: false,
             success: function(data){
-                // console.log(data);
                 var res = data.Data.Absent;
                 if(data.isSuccess == true){
                     if(data.Data == null){
@@ -71,17 +41,6 @@ $(document).ready(function () {
                         $("#leavecount").text(data.LeaveCount);
 
                     }
-                }
-                for (i = 0; i < data.Data.Absent.length; i++){
-                    $("#displaydata_m").append(
-                        "<tr><td>" +
-                          res[i].Name +
-                          "</td><td>" +
-                          res[i].Department+
-                          "</td><td>"+
-                          res[i].Designation+
-                          "</td></tr>"
-                      );
                 }
             }
         })

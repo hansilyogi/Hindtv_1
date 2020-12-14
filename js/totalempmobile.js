@@ -22,7 +22,7 @@ $(document).ready(function () {
     function admin_company(){
         $.ajax({
             type:"POST",
-            url: $("#website-url").attr("value") +"dashboard/getempdataWeb",
+            url: "http://hindtv.herokuapp.com/api/dashboard/getempdataWeb",
             data : {
                 "adminId" : emp_id
             },
